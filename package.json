@@ -1,0 +1,13 @@
+{
+  "name": "estudos-tests",
+  "main": "",
+  "repository": "https://github.com/DevJonathanMendes/Estudos-Tests.git",
+  "author": "DevJonathanMendes <jonathanbarreiro88@gmail.com>",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20"
+  }
+}
