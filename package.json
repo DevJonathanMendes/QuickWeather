@@ -1,6 +1,12 @@
 {
   "name": "fixmin",
   "version": "1.0.0",
+  "license": "GPL-3.0",
+  "private": true,
+  "description": "Web App de produtividade para estudantes",
+  "author": "DevJonathanMendes <jonathanbarreiro88@gmail.com>",
+  "repository": "https://github.com/DevJonathanMendes/project-fixmin.git",
+  "homepage": "https://github.com/DevJonathanMendes/project-fixmin#readme",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -37,6 +43,5 @@
     "jest-expo": "~48.0.0",
     "react-test-renderer": "18.2.0",
     "typescript": "^4.9.4"
-  },
-  "private": true
+  }
 }
