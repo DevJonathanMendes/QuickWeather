@@ -24,10 +24,7 @@ function RootLayoutNav() {
 	);
 }
 
-// Catch any errors thrown by the Layout component.
 export { ErrorBoundary } from 'expo-router';
-
-// Ensure that reloading on `/modal` keeps a back button present.
 export const unstable_settings = { initialRouteName: '(tabs)' };
 
 export default function RootLayout() {
@@ -36,14 +33,12 @@ export default function RootLayout() {
 		...FontAwesome.font,
 	});
 
-	// Expo Router uses Error Boundaries to catch errors in the navigation tree.
 	useEffect(() => {
 		if (error) throw error;
 	}, [error]);
 
 	return (
 		<>
-			{/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
 			{!loaded && <SplashScreen />}
 			{loaded && <RootLayoutNav />}
 		</>

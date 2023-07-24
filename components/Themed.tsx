@@ -5,6 +5,8 @@ import React, {
 } from 'react-native';
 
 import Colors from '../constants/Colors';
+import { Feather } from '@expo/vector-icons';
+import { IconProps } from '@expo/vector-icons/build/createIconSet';
 
 type ThemeProps = {
 	lightColor?: string;
@@ -28,13 +30,6 @@ export function useThemeColor(
 	}
 }
 
-export function Text(props: TextProps) {
-	const { style, lightColor, darkColor, ...otherProps } = props;
-	const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
-	return <DefaultText style={[{ color }, style]} {...otherProps} />;
-}
-
 export function View(props: ViewProps) {
 	const { style, lightColor, darkColor, ...otherProps } = props;
 	const backgroundColor = useThemeColor(
@@ -44,3 +39,15 @@ export function View(props: ViewProps) {
 
 	return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
+
+export function Text(props: TextProps) {
+	const { style, lightColor, darkColor, ...otherProps } = props;
+	const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+
+	return <DefaultText style={[{ color }, style]} {...otherProps} />;
+}
+
+/* export function Icon(props) {
+	return <Feather {...props} />;
+}
+ */

@@ -1,35 +1,28 @@
-import React, { StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { View } from '../../components/Themed';
+import Feather from '@expo/vector-icons/Feather';
+import { ViewCentralized, ViewFlex } from '../../components/StyledView';
+import {
+	BoldText,
+	CurrentTemperature,
+	MaxTemperature,
+	MinTemperature,
+	NormalText,
+} from '../../components/StyledText';
+import Week from '../../components/Week';
+import { CurrentDay } from '../../components/CurrentDay';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-
-export default function TabOneScreen() {
+export default function Home() {
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Tab One</Text>
-			<View
-				style={styles.separator}
-				lightColor='#eee'
-				darkColor='rgba(255,255,255,0.1)'
-			/>
-			<EditScreenInfo path='app/(tabs)/index.tsx' />
-		</View>
+		<ViewFlex>
+			<CurrentDay />
+			<Week />
+		</ViewFlex>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: 'bold',
-	},
-	separator: {
-		marginVertical: 30,
-		height: 1,
-		width: '80%',
-	},
+	currentDay: { flex: 2 },
+	week: { flex: 1 },
 });

@@ -8,7 +8,6 @@ export default function ModalScreen() {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Modal</Text>
-			<Text style={styles.title}>VAMOS VER!</Text>
 			<View style={styles.separator} darkColor='rgba(255,255,255,0.1)' />
 			<EditScreenInfo path='app/modal.tsx' />
 
