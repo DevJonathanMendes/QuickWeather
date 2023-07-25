@@ -15,21 +15,21 @@ export function NormalText(props: TextProps) {
 }
 
 export function CurrentTemperature(props: { value: string }) {
-	return <Text style={styles.current}>{props.value}</Text>;
+	return <Text style={styles.currentTemp}>{props.value}</Text>;
 }
 
 export function MaxTemperature(props: { value: string }) {
-	return <Text style={styles.max}>{props.value}</Text>;
+	return <Text style={styles.maxTemp}>{props.value}</Text>;
 }
 
 export function MinTemperature(props: { value: string }) {
-	return <Text style={styles.min}>{props.value}</Text>;
+	return <Text style={styles.minTemp}>{props.value}</Text>;
 }
 
 const styles = StyleSheet.create({
-	bold: { fontSize: 18, fontWeight: 'bold' },
+	bold: { fontSize: 18, fontWeight: '500' },
 	normal: { fontSize: 18 },
-	current: { fontSize: 18 },
-	max: { fontSize: 18, color: '#eee' },
-	min: { fontSize: 18, color: '#ccc' },
+	currentTemp: { fontSize: 42, color: '#fff' },
+	maxTemp: { fontSize: 18, color: '#eee' },
+	minTemp: { fontSize: 18, color: '#ccc' },
 });

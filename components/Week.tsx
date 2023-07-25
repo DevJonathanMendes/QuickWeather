@@ -27,7 +27,7 @@ export default function Week() {
 			{daysOfTheWeek.map((day, index) => (
 				<View key={index} style={styles.day}>
 					<BoldText>{day}</BoldText>
-					<Feather name='sun' color='#F5E51B' size={26} />
+					<Feather name='sun' color='#F5E51B' size={30} />
 					<MinMax />
 				</View>
 			))}
@@ -37,18 +37,17 @@ export default function Week() {
 
 const styles = StyleSheet.create({
 	week: {
-		flex:1,
+		flex: 1,
 		gap: 5,
 		padding: 5,
 		flexDirection: 'row',
 		backgroundColor: '#0195B9',
 	},
 	day: {
-		flexGrow: 1,
-		flex:1,
+		flex: 1,
 		borderRadius: 10,
 		alignItems: 'center',
-		backgroundColor: '#0195B9',
 		justifyContent: 'space-evenly',
+		backgroundColor: '#0195B9',
 	},
 });
