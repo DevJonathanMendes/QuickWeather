@@ -4,41 +4,48 @@ import {
 	MaxTemperature,
 	MinTemperature,
 	NormalText,
-} from './StyledText';
-import { View } from './Themed';
-import { ViewCentral } from './StyledView';
+} from './base/StyledText';
+import { View } from './base/Themed';
+import {
+	ViewFlexCenter,
+	ViewFlex,
+	ViewRow,
+	ViewRowFlex,
+	ViewCenter,
+} from './base/StyledView';
 import Feather from '@expo/vector-icons/Feather';
 
 const MinMax = () => {
 	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+		<ViewCenter>
 			<MaxTemperature value='20°' />
 			<MinTemperature value='10°' />
-		</View>
+		</ViewCenter>
 	);
 };
 
 export function CurrentDay() {
 	return (
-		<ViewCentral>
-			<Feather name='cloud' size={130} color='#fff' />
-			<View style={{ flexDirection: 'row', gap: 4 }}>
+		<ViewFlexCenter>
+			<Feather name='cloud' size={128} color='#fff' />
+			<ViewRow style={{ borderWidth: 2, borderColor: 'red' }}>
 				<CurrentTemperature value='30°' />
-				<View style={{ justifyContent: 'center' }}>
+				<ViewFlexCenter>
 					<View
 						style={{
-							width: 3,
+							width: 2,
 							height: '70%',
-							backgroundColor: '#ffffff',
-							borderRadius: 10,
+							borderRadius: 100,
+							marginHorizontal: 6,
+							backgroundColor: '#ffffff77',
 						}}
 					/>
-				</View>
+				</ViewFlexCenter>
 				<MinMax />
-			</View>
-			<NormalText>SUNDAY</NormalText>
-			<NormalText>Ensolarado</NormalText>
+			</ViewRow>
+
+			<NormalText>Parcialmente ensolarado</NormalText>
 			<NormalText>RealFeel 33°</NormalText>
-		</ViewCentral>
+		</ViewFlexCenter>
 	);
 }

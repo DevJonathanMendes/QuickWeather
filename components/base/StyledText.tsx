@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, StyleSheet, TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, TextProps } from './Themed';
 
 export function MonoText(props: TextProps) {
@@ -27,9 +27,9 @@ export function MinTemperature(props: { value: string }) {
 }
 
 const styles = StyleSheet.create({
-	bold: { fontSize: 18, fontWeight: '500' },
-	normal: { fontSize: 18 },
-	currentTemp: { fontSize: 42, color: '#fff' },
-	maxTemp: { fontSize: 18, color: '#eee' },
-	minTemp: { fontSize: 18, color: '#ccc' },
+	bold: { fontSize: 20, fontWeight: '500' },
+	normal: { fontSize: 20 },
+	currentTemp: { fontSize: 46, color: '#fff' },
+	maxTemp: { fontSize: 20, color: '#eee' },
+	minTemp: { fontSize: 20, color: '#ccc' },
 });

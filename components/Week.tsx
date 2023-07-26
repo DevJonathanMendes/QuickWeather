@@ -1,20 +1,14 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { View } from '../components/Themed';
+import { View } from '../components/base/Themed';
 import Feather from '@expo/vector-icons/Feather';
-import { ViewCentralized, ViewFlex } from '../components/StyledView';
-import {
-	BoldText,
-	NormalText,
-	MinTemperature,
-	MaxTemperature,
-} from '../components/StyledText';
+import { ViewEvenly, ViewRowFlex } from '../components/base/StyledView';
+import { BoldText, MinTemperature, MaxTemperature } from './base/StyledText';
 
-const daysOfTheWeek = ['SEG', 'TER', 'QUA', 'QUI', /* 'SEX', */ 'SÁB', 'DOM'];
+const daysWeek = ['SEG', 'TER', 'QUA', 'QUI', /* 'SEX', */ 'SÁB', 'DOM'];
 
 const MinMax = () => {
 	return (
-		<View darkColor='#0195B9'>
+		<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 			<MaxTemperature value='20°' />
 			<MinTemperature value='10°' />
 		</View>
@@ -23,31 +17,14 @@ const MinMax = () => {
 
 export default function Week() {
 	return (
-		<View style={styles.week}>
-			{daysOfTheWeek.map((day, index) => (
-				<View key={index} style={styles.day}>
+		<ViewRowFlex style={{ borderWidth: 2, borderColor: 'red' }}>
+			{daysWeek.map((day, index) => (
+				<ViewEvenly key={index}>
 					<BoldText>{day}</BoldText>
-					<Feather name='sun' color='#F5E51B' size={30} />
+					<Feather name='sun' color='#F5E51B' size={32} />
 					<MinMax />
-				</View>
+				</ViewEvenly>
 			))}
-		</View>
+		</ViewRowFlex>
 	);
 }
-
-const styles = StyleSheet.create({
-	week: {
-		flex: 1,
-		gap: 5,
-		padding: 5,
-		flexDirection: 'row',
-		backgroundColor: '#0195B9',
-	},
-	day: {
-		flex: 1,
-		borderRadius: 10,
-		alignItems: 'center',
-		justifyContent: 'space-evenly',
-		backgroundColor: '#0195B9',
-	},
-});

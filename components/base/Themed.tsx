@@ -4,9 +4,7 @@ import React, {
 	View as DefaultView,
 } from 'react-native';
 
-import Colors from '../constants/Colors';
-import { Feather } from '@expo/vector-icons';
-import { IconProps } from '@expo/vector-icons/build/createIconSet';
+import Colors from '../../constants/Colors';
 
 type ThemeProps = {
 	lightColor?: string;
@@ -46,8 +44,3 @@ export function Text(props: TextProps) {
 
 	return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
-
-/* export function Icon(props) {
-	return <Feather {...props} />;
-}
- */
