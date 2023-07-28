@@ -1,35 +1,19 @@
 import React from 'react';
+import { Icon, View } from './base/Themed';
+import { ViewFlexCenter, ViewRow, ViewCenter } from './base/StyledView';
 import {
 	CurrentTemperature,
 	MaxTemperature,
 	MinTemperature,
 	NormalText,
 } from './base/StyledText';
-import { View } from './base/Themed';
-import {
-	ViewFlexCenter,
-	ViewFlex,
-	ViewRow,
-	ViewRowFlex,
-	ViewCenter,
-} from './base/StyledView';
-import Feather from '@expo/vector-icons/Feather';
-
-const MinMax = () => {
-	return (
-		<ViewCenter>
-			<MaxTemperature value='20°' />
-			<MinTemperature value='10°' />
-		</ViewCenter>
-	);
-};
 
 export function CurrentDay() {
 	return (
 		<ViewFlexCenter>
-			<Feather name='cloud' size={128} color='#fff' />
-			<ViewRow style={{ borderWidth: 2, borderColor: 'red' }}>
-				<CurrentTemperature value='30°' />
+			<Icon name='cloud' size={128} />
+			<ViewRow>
+				<CurrentTemperature value='29°' />
 				<ViewFlexCenter>
 					<View
 						style={{
@@ -41,11 +25,14 @@ export function CurrentDay() {
 						}}
 					/>
 				</ViewFlexCenter>
-				<MinMax />
+				<ViewCenter>
+					<MaxTemperature value='32°' />
+					<MinTemperature value='27°' />
+				</ViewCenter>
 			</ViewRow>
 
-			<NormalText>Parcialmente ensolarado</NormalText>
-			<NormalText>RealFeel 33°</NormalText>
+			<NormalText>Parcialmente nublado</NormalText>
+			<NormalText>RealFeel 31°</NormalText>
 		</ViewFlexCenter>
 	);
 }

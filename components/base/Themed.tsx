@@ -1,10 +1,14 @@
-import React, {
-	Text as DefaultText,
+import React from 'react';
+import Colors from '../../constants/Colors';
+import Feather from '@expo/vector-icons/Feather';
+import {
 	useColorScheme,
 	View as DefaultView,
+	Text as DefaultText,
+	StyleProp,
+	TextStyle,
+	OpaqueColorValue,
 } from 'react-native';
-
-import Colors from '../../constants/Colors';
 
 type ThemeProps = {
 	lightColor?: string;
@@ -13,6 +17,12 @@ type ThemeProps = {
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
+export type IconProps = {
+	name: React.ComponentProps<typeof Feather>['name'];
+	color?: OpaqueColorValue;
+	size?: 16 | 24 | 25 | 32 | 48 | 64 | 128 | 256;
+	style?: StyleProp<TextStyle>;
+};
 
 export function useThemeColor(
 	props: { light?: string; dark?: string },
@@ -42,5 +52,17 @@ export function Text(props: TextProps) {
 	const { style, lightColor, darkColor, ...otherProps } = props;
 	const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-	return <DefaultText style={[{ color }, style]} {...otherProps} />;
+	return (
+		<DefaultText
+			style={[
+				{ color, textShadowColor: '#000000AF', textShadowRadius: 2 },
+				style,
+			]}
+			{...otherProps}
+		/>
+	);
+}
+
+export function Icon(props: IconProps) {
+	return <Feather size={24} color='#fff' {...props} />;
 }

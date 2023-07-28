@@ -27,9 +27,9 @@ export function MinTemperature(props: { value: string }) {
 }
 
 const styles = StyleSheet.create({
-	bold: { fontSize: 20, fontWeight: '500' },
+	bold: { fontSize: 18, fontWeight: 'bold' },
 	normal: { fontSize: 20 },
-	currentTemp: { fontSize: 46, color: '#fff' },
-	maxTemp: { fontSize: 20, color: '#eee' },
-	minTemp: { fontSize: 20, color: '#ccc' },
+	currentTemp: { fontSize: 48, color: '#fff' },
+	maxTemp: { fontSize: 18, color: '#eee' },
+	minTemp: { fontSize: 18, color: '#CCC' },
 });

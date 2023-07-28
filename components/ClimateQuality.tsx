@@ -1,23 +1,27 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons';
+import { Icon } from './base/Themed';
 import { NormalText } from './base/StyledText';
-import { ViewRowEvenly, ViewCircle } from './base/StyledView';
+import Feather from '@expo/vector-icons/Feather';
+import { ViewCircle, ViewRowAround } from './base/StyledView';
 
-function Info() {
+function Info(props: {
+	name: React.ComponentProps<typeof Feather>['name'];
+	value: string;
+}) {
 	return (
 		<ViewCircle>
-			<Feather name='thermometer' size={32} color='#fff' />
-			<NormalText style={{ fontSize: 14 }}>60%</NormalText>
+			<Icon {...props} />
+			<NormalText style={{ fontSize: 14 }}>{props.value}</NormalText>
 		</ViewCircle>
 	);
 }
 
 export default function ClimateQuality() {
 	return (
-		<ViewRowEvenly>
-			<Info />
-			<Info />
-			<Info />
-		</ViewRowEvenly>
+		<ViewRowAround>
+			<Info name='thermometer' value='60%' />
+			<Info name='droplet' value='0 mm' />
+			<Info name='wind' value='12 km/h' />
+		</ViewRowAround>
 	);
 }

@@ -1,30 +1,96 @@
 import React from 'react';
-import { View } from '../components/base/Themed';
+import { Icon } from './base/Themed';
 import Feather from '@expo/vector-icons/Feather';
-import { ViewEvenly, ViewRowFlex } from '../components/base/StyledView';
 import { BoldText, MinTemperature, MaxTemperature } from './base/StyledText';
+import {
+	ViewCenter,
+	ViewEvenly,
+	ViewRowFlex,
+} from '../components/base/StyledView';
 
-const daysWeek = ['SEG', 'TER', 'QUA', 'QUI', /* 'SEX', */ 'SÁB', 'DOM'];
+const daysWeek = [
+	{
+		day: 'TER',
+		condition: 'sun',
+		temperature: {
+			max: '38°',
+			min: '32°',
+		},
+	},
+	{
+		day: 'QUA',
+		condition: 'cloud',
+		temperature: {
+			max: '30°',
+			min: '26°',
+		},
+	},
+	{
+		day: 'QUI',
+		condition: 'cloud-snow',
+		temperature: {
+			max: '14°',
+			min: '8°',
+		},
+	},
+	{
+		day: 'SEX',
+		condition: 'cloud-rain',
+		temperature: {
+			max: '26°',
+			min: '20°',
+		},
+	},
+	{
+		day: 'SÁB',
+		condition: 'cloud-drizzle',
+		temperature: {
+			max: '25°',
+			min: '19°',
+		},
+	},
+	{
+		day: 'DOM',
+		condition: 'cloud-lightning',
+		temperature: {
+			max: '23°',
+			min: '17°',
+		},
+	},
+];
 
-const MinMax = () => {
+function Day(props: {
+	day: string;
+	condition: React.ComponentProps<typeof Feather>['name'];
+	maxValue: string;
+	minValue: string;
+}) {
 	return (
-		<View style={{ justifyContent: 'center', alignItems: 'center' }}>
-			<MaxTemperature value='20°' />
-			<MinTemperature value='10°' />
-		</View>
+		<ViewEvenly>
+			<BoldText>{props.day}</BoldText>
+			<Icon name={props.condition} size={24} />
+			<ViewCenter>
+				<MaxTemperature value={props.maxValue} />
+				<MinTemperature value={props.minValue} />
+			</ViewCenter>
+		</ViewEvenly>
 	);
-};
+}
 
 export default function Week() {
 	return (
-		<ViewRowFlex style={{ borderWidth: 2, borderColor: 'red' }}>
-			{daysWeek.map((day, index) => (
-				<ViewEvenly key={index}>
-					<BoldText>{day}</BoldText>
-					<Feather name='sun' color='#F5E51B' size={32} />
-					<MinMax />
-				</ViewEvenly>
-			))}
+		<ViewRowFlex>
+			{daysWeek.map(({ day, condition, temperature }, index) => {
+				return (
+					<Day
+						key={index}
+						day={day}
+						condition={condition}
+						maxValue={temperature.max}
+						minValue={temperature.min}
+					/>
+				);
+			})}
 		</ViewRowFlex>
 	);
 }
