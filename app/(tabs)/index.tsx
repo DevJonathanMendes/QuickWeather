@@ -1,20 +1,18 @@
 import React from 'react';
-import {
-	ViewFlex,
-} from '../../components/base/StyledView';
 import Week from '../../components/Week';
 import { CurrentDay } from '../../components/CurrentDay';
-import ClimateQuality from '../../components/ClimateQuality';
 import { View, Text } from '../../components/base/Themed';
+import { ViewFlex } from '../../components/base/StyledView';
+import ClimateQuality from '../../components/ClimateQuality';
 
 export default function Home() {
 	return (
-		<ViewFlex darkColor='#00BCE2'>
+		<ViewFlex darkColor='#016FC1'>
 			<ViewFlex>
 				<CurrentDay />
 			</ViewFlex>
 
-			<ViewFlex darkColor='#0195B9'>
+			<ViewFlex darkColor='#014A7F'>
 				<Week />
 				<ClimateQuality />
 				<View
@@ -42,7 +40,7 @@ export default function Home() {
 							textShadowRadius: 2,
 						}}
 					>
-						Atualizado 56 minutos atrás
+						Atualizado há 8 minutos
 					</Text>
 				</View>
 			</ViewFlex>

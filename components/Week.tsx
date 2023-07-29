@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon } from './base/Themed';
-import Feather from '@expo/vector-icons/Feather';
+import { IconPNG } from './base/Themed';
 import { BoldText, MinTemperature, MaxTemperature } from './base/StyledText';
 import {
 	ViewCenter,
@@ -11,39 +10,39 @@ import {
 const daysWeek = [
 	{
 		day: 'TER',
-		condition: 'sun',
+		condition: 'cloud',
 		temperature: {
-			max: '38°',
-			min: '32°',
+			max: '22°',
+			min: '18°',
 		},
 	},
 	{
 		day: 'QUA',
-		condition: 'cloud',
+		condition: 'sun',
 		temperature: {
-			max: '30°',
-			min: '26°',
-		},
-	},
-	{
-		day: 'QUI',
-		condition: 'cloud-snow',
-		temperature: {
-			max: '14°',
-			min: '8°',
-		},
-	},
-	{
-		day: 'SEX',
-		condition: 'cloud-rain',
-		temperature: {
-			max: '26°',
+			max: '34°',
 			min: '20°',
 		},
 	},
 	{
+		day: 'QUI',
+		condition: 'sun-cloud',
+		temperature: {
+			max: '30°',
+			min: '27°',
+		},
+	},
+	{
+		day: 'SEX',
+		condition: 'sun-cloud-rain',
+		temperature: {
+			max: '27°',
+			min: '22°',
+		},
+	},
+	{
 		day: 'SÁB',
-		condition: 'cloud-drizzle',
+		condition: 'cloud-rain',
 		temperature: {
 			max: '25°',
 			min: '19°',
@@ -51,7 +50,7 @@ const daysWeek = [
 	},
 	{
 		day: 'DOM',
-		condition: 'cloud-lightning',
+		condition: 'cloud',
 		temperature: {
 			max: '23°',
 			min: '17°',
@@ -59,16 +58,18 @@ const daysWeek = [
 	},
 ];
 
-function Day(props: {
+type dayProps = {
 	day: string;
-	condition: React.ComponentProps<typeof Feather>['name'];
+	condition: string;
 	maxValue: string;
 	minValue: string;
-}) {
+};
+
+function Day(props: dayProps) {
 	return (
 		<ViewEvenly>
 			<BoldText>{props.day}</BoldText>
-			<Icon name={props.condition} size={24} />
+			<IconPNG image={props.condition} />
 			<ViewCenter>
 				<MaxTemperature value={props.maxValue} />
 				<MinTemperature value={props.minValue} />
@@ -80,7 +81,9 @@ function Day(props: {
 export default function Week() {
 	return (
 		<ViewRowFlex>
-			{daysWeek.map(({ day, condition, temperature }, index) => {
+			{daysWeek.map((dayWeek, index) => {
+				const { day, condition, temperature } = dayWeek;
+				
 				return (
 					<Day
 						key={index}

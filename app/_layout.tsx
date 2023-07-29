@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import { useColorScheme } from 'react-native';
 import { SplashScreen, Stack } from 'expo-router';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import {
 	DarkTheme,
 	DefaultTheme,
@@ -17,7 +16,10 @@ function RootLayoutNav() {
 			<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
 				<Stack>
 					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-					<Stack.Screen name='modal' options={{ presentation: 'modal' }} />
+					<Stack.Screen
+						name='modal'
+						options={{ presentation: 'card', headerTitle: 'Cidade' }}
+					/>
 				</Stack>
 			</ThemeProvider>
 		</>
@@ -30,7 +32,6 @@ export const unstable_settings = { initialRouteName: '(tabs)' };
 export default function RootLayout() {
 	const [loaded, error] = useFonts({
 		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-		...FontAwesome.font,
 	});
 
 	useEffect(() => {

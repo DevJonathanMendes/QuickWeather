@@ -2,11 +2,12 @@ import React from 'react';
 import Colors from '../../constants/Colors';
 import Feather from '@expo/vector-icons/Feather';
 import {
-	useColorScheme,
 	View as DefaultView,
 	Text as DefaultText,
+	Image,
 	StyleProp,
 	TextStyle,
+	useColorScheme,
 	OpaqueColorValue,
 } from 'react-native';
 
@@ -55,7 +56,7 @@ export function Text(props: TextProps) {
 	return (
 		<DefaultText
 			style={[
-				{ color, textShadowColor: '#000000AF', textShadowRadius: 2 },
+				{ color, textShadowColor: '#000000AF', textShadowRadius: 4 },
 				style,
 			]}
 			{...otherProps}
@@ -65,4 +66,14 @@ export function Text(props: TextProps) {
 
 export function Icon(props: IconProps) {
 	return <Feather size={24} color='#fff' {...props} />;
+}
+
+export function IconPNG(props: { image: string; size?: number }) {
+	const size = props.size ?? 48;
+	return (
+		<Image
+			source={{ uri: `assets/images/weather/${props.image}.png` }}
+			style={{ width: size, height: size }}
+		/>
+	);
 }

@@ -18,7 +18,7 @@ export default function TabLayout() {
 				name='index'
 				options={{
 					headerTitle: 'Cidade, Estado',
-					tabBarIcon: () => <Icon name='home' size={25} />,
+					tabBarIcon: () => <Icon name='cloud' size={25} />,
 					headerRight: () => (
 						<Link href='/modal' asChild>
 							<Pressable>
