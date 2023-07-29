@@ -18,7 +18,9 @@ export default function TabLayout() {
 				name='index'
 				options={{
 					headerTitle: 'Cidade, Estado',
-					tabBarIcon: () => <Icon name='cloud' size={25} />,
+					tabBarIcon: ({ color }) => (
+						<Icon name='cloud' size={25} color={color} />
+					),
 					headerRight: () => (
 						<Link href='/modal' asChild>
 							<Pressable>
@@ -37,7 +39,9 @@ export default function TabLayout() {
 				name='devProfile'
 				options={{
 					title: 'Dev Profile',
-					tabBarIcon: () => <Icon name='user' size={25} />,
+					tabBarIcon: ({ color }) => (
+						<Icon name='user' size={25} color={color} />
+					),
 				}}
 			/>
 		</Tabs>
