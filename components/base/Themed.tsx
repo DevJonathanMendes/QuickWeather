@@ -20,8 +20,8 @@ export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
 export type IconProps = {
 	name: React.ComponentProps<typeof Feather>['name'];
-	color?: OpaqueColorValue;
-	size?: 16 | 24 | 25 | 32 | 48 | 64 | 128 | 256;
+	color?: string | OpaqueColorValue;
+	size?: 16 | 24 | 25 | 32 | 48 | 64 | 128;
 	style?: StyleProp<TextStyle>;
 };
 
@@ -65,7 +65,7 @@ export function Text(props: TextProps) {
 }
 
 export function Icon(props: IconProps) {
-	return <Feather size={24} color='#fff' {...props} />;
+	return <Feather size={24} color={'#fff'} {...props} />;
 }
 
 export function IconPNG(props: { image: string; size?: number }) {
