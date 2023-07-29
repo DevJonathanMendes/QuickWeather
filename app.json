@@ -1,7 +1,7 @@
 {
 	"expo": {
-		"name": "Fixmin",
-		"slug": "Fixmin",
+		"name": "QuickWeather",
+		"slug": "QuickWeather seu de app clima simples e amigável.",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/images/icon.png",
