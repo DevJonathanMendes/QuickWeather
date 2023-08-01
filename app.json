@@ -1,11 +1,12 @@
 {
 	"expo": {
 		"name": "QuickWeather",
-		"slug": "QuickWeather seu de app clima simples e amigável.",
-		"version": "1.0.0",
+		"version": "1.0.1",
+		"slug": "QuickWeather",
+		"description": "QuickWeather, seu aplicativo clima simples e amigável.",
 		"orientation": "portrait",
 		"icon": "./assets/images/icon.png",
-		"scheme": "myapp",
+		"scheme": "quickweather",
 		"userInterfaceStyle": "automatic",
 		"splash": {
 			"image": "./assets/images/splash.png",
@@ -15,9 +16,10 @@
 		"assetBundlePatterns": [
 			"**/*"
 		],
-		"ios": {
-			"supportsTablet": true
-		},
+		"platforms": [
+			"android",
+			"web"
+		],
 		"android": {
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/images/adaptive-icon.png",
