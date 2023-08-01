@@ -1,6 +1,7 @@
 import React from 'react';
 import Colors from '../../constants/Colors';
 import Feather from '@expo/vector-icons/Feather';
+import weatherIcons from '../../constants/weatherIcons';
 import {
 	View as DefaultView,
 	Text as DefaultText,
@@ -18,7 +19,7 @@ type ThemeProps = {
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
-export type IconProps = {
+type IconProps = {
 	name: React.ComponentProps<typeof Feather>['name'];
 	color?: string | OpaqueColorValue;
 	size?: 16 | 24 | 25 | 32 | 48 | 64 | 128;
@@ -69,11 +70,10 @@ export function Icon(props: IconProps) {
 }
 
 export function IconPNG(props: { image: string; size?: number }) {
+	const { image } = props;
 	const size = props.size ?? 48;
+
 	return (
-		<Image
-			source={{ uri: `assets/images/weather/${props.image}.png` }}
-			style={{ width: size, height: size }}
-		/>
+		<Image source={weatherIcons[image]} style={{ width: size, height: size }} />
 	);
 }
