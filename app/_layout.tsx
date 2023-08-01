@@ -18,7 +18,11 @@ function RootLayoutNav() {
 					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
 					<Stack.Screen
 						name='modal'
-						options={{ presentation: 'card', headerTitle: 'Cidade' }}
+						options={{
+							presentation: 'modal',
+							headerTitle: 'Cidade',
+							animation: 'slide_from_right',
+						}}
 					/>
 				</Stack>
 			</ThemeProvider>
