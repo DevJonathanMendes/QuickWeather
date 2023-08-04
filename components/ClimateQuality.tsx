@@ -18,7 +18,7 @@ function Info(props: {
 
 export default function ClimateQuality() {
 	return (
-		<ViewRowAround>
+		<ViewRowAround style={{ marginVertical: 8 }}>
 			<Info name='thermometer' value='60%' />
 			<Info name='droplet' value='0 mm' />
 			<Info name='wind' value='12 km/h' />

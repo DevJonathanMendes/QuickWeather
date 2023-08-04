@@ -2,8 +2,8 @@ import React from 'react';
 import { IconPNG } from './base/Themed';
 import { BoldText, MinTemperature, MaxTemperature } from './base/StyledText';
 import {
-	ViewCenter,
 	ViewEvenly,
+	ViewFlexCenter,
 	ViewRowFlex,
 } from '../components/base/StyledView';
 
@@ -68,12 +68,16 @@ type dayProps = {
 function Day(props: dayProps) {
 	return (
 		<ViewEvenly>
-			<BoldText>{props.day}</BoldText>
-			<IconPNG image={props.condition} />
-			<ViewCenter>
+			<ViewFlexCenter>
+				<BoldText>{props.day}</BoldText>
+			</ViewFlexCenter>
+			<ViewFlexCenter>
+				<IconPNG image={props.condition} />
+			</ViewFlexCenter>
+			<ViewFlexCenter>
 				<MaxTemperature value={props.maxValue} />
 				<MinTemperature value={props.minValue} />
-			</ViewCenter>
+			</ViewFlexCenter>
 		</ViewEvenly>
 	);
 }
@@ -83,7 +87,7 @@ export default function Week() {
 		<ViewRowFlex>
 			{daysWeek.map((dayWeek, index) => {
 				const { day, condition, temperature } = dayWeek;
-				
+
 				return (
 					<Day
 						key={index}

@@ -1,11 +1,6 @@
 import React from 'react';
-import { IconPNG } from './base/Themed';
-import {
-	ViewRow,
-	ViewFlex,
-	ViewCenter,
-	ViewFlexCenter,
-} from './base/StyledView';
+import { IconPNG, View } from './base/Themed';
+import { ViewRow, ViewFlex, ViewCenter } from './base/StyledView';
 import {
 	NormalText,
 	MaxTemperature,
@@ -15,10 +10,10 @@ import {
 
 export function CurrentDay() {
 	return (
-		<ViewFlexCenter>
-			<ViewFlexCenter>
+		<ViewCenter>
+			<ViewCenter>
 				<IconPNG image={'sun-cloud'} size={128} />
-			</ViewFlexCenter>
+			</ViewCenter>
 			<ViewCenter>
 				<ViewRow>
 					<ViewCenter>
@@ -42,10 +37,10 @@ export function CurrentDay() {
 					</ViewCenter>
 				</ViewRow>
 			</ViewCenter>
-			<ViewFlex style={{ alignItems: 'center' }}>
+			<View style={{ alignItems: 'center' }}>
 				<NormalText>Parcialmente nublado</NormalText>
 				<NormalText>RealFeel 26°</NormalText>
-			</ViewFlex>
-		</ViewFlexCenter>
+			</View>
+		</ViewCenter>
 	);
 }

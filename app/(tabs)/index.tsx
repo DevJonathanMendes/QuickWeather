@@ -2,15 +2,15 @@ import React from 'react';
 import Week from '../../components/Week';
 import { CurrentDay } from '../../components/CurrentDay';
 import { View, Text } from '../../components/base/Themed';
-import { ViewFlex } from '../../components/base/StyledView';
 import ClimateQuality from '../../components/ClimateQuality';
+import { ViewFlex, ViewFlexCenter } from '../../components/base/StyledView';
 
 export default function Home() {
 	return (
 		<ViewFlex darkColor='#016FC1'>
-			<ViewFlex>
+			<ViewFlexCenter>
 				<CurrentDay />
-			</ViewFlex>
+			</ViewFlexCenter>
 
 			<ViewFlex darkColor='#014A7F'>
 				<Week />
