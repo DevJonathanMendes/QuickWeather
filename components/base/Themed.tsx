@@ -1,7 +1,7 @@
 import React from 'react';
 import Colors from '../../constants/Colors';
 import Feather from '@expo/vector-icons/Feather';
-import weatherIcons from '../../constants/weatherIcons';
+import WeatherIcons from '../../constants/WeatherIcons';
 import {
 	View as DefaultView,
 	Text as DefaultText,
@@ -74,6 +74,6 @@ export function IconPNG(props: { image: string; size?: number }) {
 	const size = props.size ?? 48;
 
 	return (
-		<Image source={weatherIcons[image]} style={{ width: size, height: size }} />
+		<Image source={WeatherIcons[image]} style={{ width: size, height: size }} />
 	);
 }
