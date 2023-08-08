@@ -17,14 +17,15 @@ type ThemeProps = {
 	darkColor?: string;
 };
 
-export type TextProps = ThemeProps & DefaultText['props'];
-export type ViewProps = ThemeProps & DefaultView['props'];
 type IconProps = {
 	name: React.ComponentProps<typeof Feather>['name'];
 	color?: string | OpaqueColorValue;
 	size?: 16 | 24 | 25 | 32 | 48 | 64 | 128;
 	style?: StyleProp<TextStyle>;
 };
+
+export type TextProps = ThemeProps & DefaultText['props'];
+export type ViewProps = ThemeProps & DefaultView['props'];
 
 export function useThemeColor(
 	props: { light?: string; dark?: string },
@@ -33,11 +34,7 @@ export function useThemeColor(
 	const theme = useColorScheme() ?? 'light';
 	const colorFromProps = props[theme];
 
-	if (colorFromProps) {
-		return colorFromProps;
-	} else {
-		return Colors[theme][colorName];
-	}
+	return colorFromProps ? colorFromProps : Colors[theme][colorName];
 }
 
 export function View(props: ViewProps) {
