@@ -34,10 +34,21 @@ export function ViewRowAround(props: ViewProps) {
 	return <ViewRow {...props} style={[props.style, styles.around]} />;
 }
 
-export function ViewCircle(props: ViewProps) {
-	return (
-		<View {...props} style={[props.style, styles.circle, styles.evenly]} />
-	);
+export function ViewCircle(props: ViewProps & { size: number }) {
+	const { style, size } = props;
+	const { evenly, circle } = styles;
+
+	const dimensions = [
+		evenly,
+		circle,
+		{
+			width: size,
+			height: size,
+			borderRadius: size / 2,
+		},
+	];
+
+	return <View {...props} style={[style, dimensions]} />;
 }
 
 const styles = StyleSheet.create({
@@ -57,10 +68,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	circle: {
-		width: 74,
-		height: 74,
 		padding: 8,
-		borderRadius: 100,
 		backgroundColor: '#FFFFFF2F',
 	},
 });

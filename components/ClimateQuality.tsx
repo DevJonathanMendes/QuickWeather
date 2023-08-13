@@ -4,12 +4,14 @@ import { NormalText } from './base/StyledText';
 import Feather from '@expo/vector-icons/Feather';
 import { ViewCircle, ViewRowAround } from './base/StyledView';
 
-function Info(props: {
+type InfoProps = {
 	name: React.ComponentProps<typeof Feather>['name'];
 	value: string;
-}) {
+};
+
+function Info(props: InfoProps) {
 	return (
-		<ViewCircle>
+		<ViewCircle size={74}>
 			<Icon {...props} />
 			<NormalText style={{ fontSize: 14 }}>{props.value}</NormalText>
 		</ViewCircle>
