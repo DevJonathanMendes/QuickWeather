@@ -74,3 +74,21 @@ export function IconPNG(props: { image: string; size?: number }) {
 		<Image source={WeatherIcons[image]} style={{ width: size, height: size }} />
 	);
 }
+
+export function ProfilePicture(props: { uri: string; size: number }) {
+	const { uri, size } = props;
+
+	return (
+		<Image
+			source={{ uri }}
+			style={{
+				resizeMode: 'contain',
+				width: size,
+				height: size,
+				borderRadius: size / 2,
+				borderWidth: 2,
+				borderColor: '#484F58',
+			}}
+		/>
+	);
+}
