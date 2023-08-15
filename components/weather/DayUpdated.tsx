@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from './base/Themed';
+import { View, Text } from '../base/Themed';
 
 export default function DayUpdated() {
 	return (

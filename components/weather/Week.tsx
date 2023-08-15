@@ -1,11 +1,11 @@
 import React from 'react';
-import { IconPNG } from './base/Themed';
-import { BoldText, MinTemperature, MaxTemperature } from './base/StyledText';
+import { IconPNG } from '../base/Themed';
+import { BoldText, Temperature } from '../base/StyledText';
 import {
 	ViewEvenly,
-	ViewFlexCenter,
 	ViewRowFlex,
-} from '../components/base/StyledView';
+	ViewFlexCenter,
+} from '../../components/base/StyledView';
 
 const daysWeek = [
 	{
@@ -61,22 +61,21 @@ const daysWeek = [
 type dayProps = {
 	day: string;
 	condition: string;
-	maxValue: string;
-	minValue: string;
+	temperature: { max: string; min: string };
 };
 
-function Day(props: dayProps) {
+function Day({ day, condition, temperature }: dayProps) {
 	return (
 		<ViewEvenly>
 			<ViewFlexCenter>
-				<BoldText>{props.day}</BoldText>
+				<BoldText>{day}</BoldText>
 			</ViewFlexCenter>
 			<ViewFlexCenter>
-				<IconPNG image={props.condition} />
+				<IconPNG image={condition} />
 			</ViewFlexCenter>
 			<ViewFlexCenter>
-				<MaxTemperature value={props.maxValue} />
-				<MinTemperature value={props.minValue} />
+				<Temperature.Max value={temperature.max} />
+				<Temperature.Min value={temperature.min} />
 			</ViewFlexCenter>
 		</ViewEvenly>
 	);
@@ -85,19 +84,9 @@ function Day(props: dayProps) {
 export default function Week() {
 	return (
 		<ViewRowFlex>
-			{daysWeek.map((dayWeek, index) => {
-				const { day, condition, temperature } = dayWeek;
-
-				return (
-					<Day
-						key={index}
-						day={day}
-						condition={condition}
-						maxValue={temperature.max}
-						minValue={temperature.min}
-					/>
-				);
-			})}
+			{daysWeek.map((day, index) => (
+				<Day key={index} {...day} />
+			))}
 		</ViewRowFlex>
 	);
 }

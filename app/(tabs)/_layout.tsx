@@ -36,9 +36,9 @@ export default function TabLayout() {
 				}}
 			/>
 			<Tabs.Screen
-				name='devProfile'
+				name='profile'
 				options={{
-					title: 'Dev Profile',
+					headerShown: false,
 					tabBarIcon: ({ color }) => (
 						<Icon name='user' size={25} color={color} />
 					),

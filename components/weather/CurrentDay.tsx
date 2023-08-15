@@ -1,12 +1,7 @@
 import React from 'react';
-import { IconPNG, View } from './base/Themed';
-import { ViewRow, ViewFlex, ViewCenter } from './base/StyledView';
-import {
-	NormalText,
-	MaxTemperature,
-	MinTemperature,
-	CurrentTemperature,
-} from './base/StyledText';
+import { IconPNG, View } from '../base/Themed';
+import { NormalText, Temperature } from '../base/StyledText';
+import { ViewRow, ViewFlex, ViewCenter } from '../base/StyledView';
 
 export function CurrentDay() {
 	return (
@@ -17,7 +12,7 @@ export function CurrentDay() {
 			<ViewCenter>
 				<ViewRow>
 					<ViewCenter>
-						<CurrentTemperature value='25°' />
+						<Temperature.Current value='25°' />
 					</ViewCenter>
 					<ViewCenter>
 						<ViewFlex
@@ -32,8 +27,8 @@ export function CurrentDay() {
 						/>
 					</ViewCenter>
 					<ViewCenter>
-						<MaxTemperature value='27°' />
-						<MinTemperature value='23°' />
+						<Temperature.Max value='27°' />
+						<Temperature.Min value='23°' />
 					</ViewCenter>
 				</ViewRow>
 			</ViewCenter>

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Icon } from './base/Themed';
-import { NormalText } from './base/StyledText';
+import { Icon } from '../base/Themed';
+import { NormalText } from '../base/StyledText';
 import Feather from '@expo/vector-icons/Feather';
-import { ViewCircle, ViewRowAround } from './base/StyledView';
+import { ViewCircle, ViewRowAround } from '../base/StyledView';
 
 type InfoProps = {
 	name: React.ComponentProps<typeof Feather>['name'];
@@ -12,7 +12,7 @@ type InfoProps = {
 function Info(props: InfoProps) {
 	return (
 		<ViewCircle size={74}>
-			<Icon {...props} />
+			<Icon name={props.name} />
 			<NormalText style={{ fontSize: 14 }}>{props.value}</NormalText>
 		</ViewCircle>
 	);

@@ -1,9 +1,9 @@
 {
 	"name": "quickweather",
-	"version": "1.0.1",
+	"version": "1.0.0",
 	"license": "GPL-3.0",
 	"private": true,
-	"description": "O QuickWeather é um app de clima simples e amigável.",
+	"description": "QuickWeather é um app de clima simples e amigável.",
 	"author": "DevJonathanMendes <jonathanbarreiro88@gmail.com>",
 	"repository": "https://github.com/DevJonathanMendes/QuickWeather.git",
 	"homepage": "https://github.com/DevJonathanMendes/QuickWeather",

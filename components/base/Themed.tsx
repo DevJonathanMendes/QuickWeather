@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Colors from '../../constants/Colors';
 import Feather from '@expo/vector-icons/Feather';
 import WeatherIcons from '../../constants/WeatherIcons';
@@ -10,6 +10,7 @@ import {
 	TextStyle,
 	useColorScheme,
 	OpaqueColorValue,
+	ActivityIndicator,
 } from 'react-native';
 
 type ThemeProps = {
@@ -76,19 +77,27 @@ export function IconPNG(props: { image: string; size?: number }) {
 }
 
 export function ProfilePicture(props: { uri: string; size: number }) {
+	const [isLoading, setIsLoading] = useState(true);
 	const { uri, size } = props;
 
 	return (
-		<Image
-			source={{ uri }}
-			style={{
-				resizeMode: 'contain',
-				width: size,
-				height: size,
-				borderRadius: size / 2,
-				borderWidth: 2,
-				borderColor: '#484F58',
-			}}
-		/>
+		<View>
+			<View style={{ display: isLoading ? 'flex' : 'none' }}>
+				<ActivityIndicator />
+			</View>
+			<Image
+				source={{ uri }}
+				onLoad={() => setIsLoading(false)}
+				style={{
+					width: size,
+					height: size,
+					borderWidth: 2,
+					borderColor: '#484F58',
+					borderRadius: size / 2,
+					resizeMode: 'contain',
+					display: isLoading ? 'none' : 'flex',
+				}}
+			/>
+		</View>
 	);
 }
