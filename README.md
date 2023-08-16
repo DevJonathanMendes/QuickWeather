@@ -16,7 +16,10 @@ O serviço de meteorologia não foi implementado..
 
 ## Screenshots 🖼️
 
-<img src="https://raw.github.com/DevJonathanMendes/project-fixmin/master/assets/images/1.png" width="20%"/> <img src="https://raw.github.com/DevJonathanMendes/project-fixmin/master/assets/images/2.png" width="20%"/>
+<p float="left">
+  <img src="https://raw.github.com/DevJonathanMendes/project-fixmin/master/assets/images/1.png" width="15%"/>
+  <img src="https://raw.github.com/DevJonathanMendes/project-fixmin/master/assets/images/2.png" width="15%"/>
+</p>
 
 ## Começando 🚀
 
